@@ -1,34 +1,27 @@
 # 🌾 Crop-Bug Detection
 
 A full-stack web application for smart agriculture: growers can upload crop/leaf images to detect bugs/diseases and receive AI-based crop recommendations based on soil and environmental data.
-
-![Crop-Bug Detection Screenshot](path/to/screenshot.png)
+Link: https://crop-bug-detection.vercel.app/
 
 ## 🚀 Features
 
 - **Crop & Disease Detection**  
   Detect plant diseases or pest damage in uploaded images using AI-powered image recognition.
 
+- **Real-Time Bug Prediction**  
+  Get immediate insights from uploaded leaf/crop images, powered by real-time machine learning models.
+
+- **Downloadable Reports & Notebooks**  
+  Easily access and download detailed analysis reports, Jupyter notebooks, and prediction results directly from the website.
+
 - **Crop Recommendations**  
   Get suggestions for optimal crops based on soil properties (N, P, K, pH, moisture), weather data, and geographic region.
 
 - **Soil-Report Insights**  
-  Analyze soil test reports and explain what your soil needs—based on nutrient profiles like nitrogen, phosphorus, potassium, and pH.
+  Analyze soil test reports and understand nutrient needs using AI-backed recommendations.
 
-- **Real-Time Weather Integration**  
-  Get local weather forecasts to help you plan farming activities and safeguard crops.
-
-- **Market Price & Advisory Data**  
-  Access up-to-date crop-market pricing and information on schemes and subsidies.
-
-- **AI Chatbot Assistance**  
-  Multi-lingual chatbot (English, Hindi, Marathi…) for on-the-spot help with queries and guidance.
-
-- **Appointment Booking**  
-  Schedule soil sample tests with nearby laboratories.
-
-- **Responsive UI**  
-  Clean, mobile-first interface built using shadcn/ui components.
+- **Responsive & Modern UI**  
+  Built with shadcn/ui and Tailwind CSS, ensuring a clean, mobile-first experience.
 
 ## 🎯 Getting Started
 
@@ -44,35 +37,6 @@ A full-stack web application for smart agriculture: growers can upload crop/leaf
   ```
 - Optional: credentials or endpoints for soil testing & pricing APIs
 
-### 2. Installation
-
-```bash
-# Clone the repo
-git clone https://github.com/yourusername/crop-bug-detection.git
-cd crop-bug-detection
-
-# Frontend
-cd frontend
-npm install
-
-# Backend
-cd ../backend
-pip install -r requirements.txt
-```
-
-### 3. Running Locally
-
-```bash
-# Frontend
-cd frontend
-npm run dev
-
-# Backend
-cd backend
-flask run
-```
-
-Visit `http://localhost:3000` to see the app in action.
 
 ### 4. Model Training & Data
 
@@ -132,25 +96,13 @@ We simulated the AI logic; to add real AI:
 - Use `i18n/` for text translation.  
 - Connect chatbot to translations for natural-language support.
 
-## ✅ Next Steps
-
-- Deploy real ML/DL prediction pipelines  
-- Integrate external APIs (weather, market, soil labs)  
-- Add authentication & farmer user profiles  
-- Support more regional languages  
-- Include push notifications & offline mode
-
 ## 📄 License & Contributing
 
 This project is under the **MIT License**. Contributions, bug reports, and feature requests are welcome—simply open an issue or submit a PR!
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - Built using Vercel, Flask, React, and shadcn/ui  
 - Inspired by open-source systems like AgroFriend & Crop Guard
 
-## 🎯 Contact
 
-For questions or feedback, reach out at `your.email@example.com`.
-
-**Happy farming and AI to your fields!**
