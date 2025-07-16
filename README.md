@@ -1,68 +1,156 @@
+# 🌾 Crop-Bug Detection
 
-# Image Classification with Transfer Learning (PyTorch)
+A full-stack web application for smart agriculture: growers can upload crop/leaf images to detect bugs/diseases and receive AI-based crop recommendations based on soil and environmental data.
 
-This project demonstrates how to perform multi-class image classification using PyTorch and transfer learning with popular architectures such as ResNet18 and EfficientNetB0.
+![Crop-Bug Detection Screenshot](path/to/screenshot.png)
 
-## 📁 Project Structure
+## 🚀 Features
 
-- **Data Loaders**: Efficient loading of train, validation, and test datasets using `torchvision.datasets.ImageFolder` and `DataLoader`.
-- **Model Initialization**: Supports ResNet18 and EfficientNetB0 with optional feature freezing.
-- **Training Loop**: Two-phase training: first trains only the classifier layers, then fine-tunes all layers.
-- **Evaluation**: Includes accuracy calculation and ROC curve plotting for multi-class problems.
-- **Model Export**: Save the model in both `.pth` and ONNX formats.
+- **Crop & Disease Detection**  
+  Detect plant diseases or pest damage in uploaded images using AI-powered image recognition.
 
-## 🛠️ Requirements
+- **Crop Recommendations**  
+  Get suggestions for optimal crops based on soil properties (N, P, K, pH, moisture), weather data, and geographic region.
 
-- Python 3.8+
-- PyTorch
-- Torchvision
-- Scikit-learn
-- Matplotlib
-- NumPy
+- **Soil-Report Insights**  
+  Analyze soil test reports and explain what your soil needs—based on nutrient profiles like nitrogen, phosphorus, potassium, and pH.
 
-Install requirements via:
+- **Real-Time Weather Integration**  
+  Get local weather forecasts to help you plan farming activities and safeguard crops.
+
+- **Market Price & Advisory Data**  
+  Access up-to-date crop-market pricing and information on schemes and subsidies.
+
+- **AI Chatbot Assistance**  
+  Multi-lingual chatbot (English, Hindi, Marathi…) for on-the-spot help with queries and guidance.
+
+- **Appointment Booking**  
+  Schedule soil sample tests with nearby laboratories.
+
+- **Responsive UI**  
+  Clean, mobile-first interface built using shadcn/ui components.
+
+## 🎯 Getting Started
+
+### 1. Prerequisites
+
+- Node.js (v16+)
+- Python (3.8+) & Flask
+- Jupyter Notebook (for dataset preprocessing / model training)
+- `.env` file with:
+  ```
+  OPENWEATHER_API_KEY=your_api_key
+  SOIL_API_KEY=your_api_key
+  ```
+- Optional: credentials or endpoints for soil testing & pricing APIs
+
+### 2. Installation
+
 ```bash
-pip install torch torchvision scikit-learn matplotlib numpy
+# Clone the repo
+git clone https://github.com/yourusername/crop-bug-detection.git
+cd crop-bug-detection
+
+# Frontend
+cd frontend
+npm install
+
+# Backend
+cd ../backend
+pip install -r requirements.txt
 ```
 
-## 🚀 Usage
+### 3. Running Locally
 
-1. **Prepare Dataset**:
-   - Organize your dataset in the following structure:
-     ```
-     dataset/
-       train/
-         class1/
-         class2/
-         ...
-       val/
-         class1/
-         class2/
-         ...
-       test/
-         class1/
-         class2/
-         ...
-     ```
+```bash
+# Frontend
+cd frontend
+npm run dev
 
-2. **Run Training**:
-   - Execute the notebook step-by-step or all at once.
-   - Select desired model: `resnet18` or `efficientnet_b0`.
+# Backend
+cd backend
+flask run
+```
 
-3. **Evaluate and Save Model**:
-   - Accuracy and ROC curves are automatically generated.
-   - Model is saved as `.pth` and optionally exported to ONNX.
+Visit `http://localhost:3000` to see the app in action.
 
-## 📊 Outputs
+### 4. Model Training & Data
 
-- Training/Validation loss and accuracy plots
-- ROC curves for each class
-- Trained model saved as `.pth`
-- Optional ONNX export
+In `notebooks/crop_analysis.ipynb`, you'll find preprocessing scripts and ML model training examples. To retrain:
 
-## 📄 Notes
+1. Populate `data/` folder (e.g., leaf/tissue analysis, test datasets).
+2. Run notebook to output `models/*.pkl`.
+3. Load into Flask API for dynamic inference.
 
-- Freezing is done during Phase 1 to train only the classifier.
-- Unfreezing is done in Phase 2 for full model fine-tuning.
+## 🧱 Project Structure
 
+```
+/
+├── frontend/         # React / Next.js UI
+├── backend/          # Flask APIs for detection & advisory
+|   ├── app.py
+|   ├── requirements.txt
+|   └── models/
+│       └── crop_model.pkl
+├── notebooks/        # Data preprocessing & model training
+├── data/             # Raw and processed datasets
+└── docs/             # Design specs, deployment guides
+```
 
+## 🔧 How It Works
+
+### Crop/Disease Detection
+
+1. User uploads an image via frontend.
+2. Frontend sends to Flask `/predict` endpoint.
+3. Flask uses a pre-trained ML model (e.g. CNN) to infer disease/pest presence.
+4. Returns disease name and confidence score to the UI.
+
+### Crop Recommendation
+
+1. User inputs soil parameters (NPK, pH, moisture, location).
+2. Frontend POSTs to `/recommend`.
+3. Flask applies rule-based or trained model logic to suggest top crops.
+4. Returns best-fit crops + expected yields.
+
+## 🧠 AI Components (Simulated 🔧)
+
+We simulated the AI logic; to add real AI:
+
+- **Model training**  
+  Use scikit‑learn/PyTorch in Jupyter notebooks.
+
+- **Weather & Market APIs**  
+  Integrate with OpenWeatherMap, AgriMarket, or local data sources.
+
+- **Chatbot**  
+  Connect with ChatGPT or any LLM via OpenAI API and embed in the frontend.
+
+## 🗣 Languages & Transliteration
+
+- Multi-language UI (EN, HI, MR).  
+- Use `i18n/` for text translation.  
+- Connect chatbot to translations for natural-language support.
+
+## ✅ Next Steps
+
+- Deploy real ML/DL prediction pipelines  
+- Integrate external APIs (weather, market, soil labs)  
+- Add authentication & farmer user profiles  
+- Support more regional languages  
+- Include push notifications & offline mode
+
+## 📄 License & Contributing
+
+This project is under the **MIT License**. Contributions, bug reports, and feature requests are welcome—simply open an issue or submit a PR!
+
+## 🙏 Acknowledgments
+
+- Built using Vercel, Flask, React, and shadcn/ui  
+- Inspired by open-source systems like AgroFriend & Crop Guard
+
+## 🎯 Contact
+
+For questions or feedback, reach out at `your.email@example.com`.
+
+**Happy farming and AI to your fields!**
